@@ -1,3 +1,11 @@
+import animationStates from './animationStates.json' assert {type: 'json'}
+
+let playerState = "idle"
+const dropDown = document.getElementById('animations');
+dropDown.addEventListener('change', function(e){
+    playerState = e.target.value;
+});
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 
@@ -5,30 +13,30 @@ const CANVAS_WIDTH = canvas.width = 600;
 const CANVAS_HEIGHT = canvas.height = 600;
 
 const playerImg = new Image();
-playerImg.src = 'catwalkbluespritesheet.png'
-// let test = 0;
-const spriteWidth = 544;
-const spriteHeight = 476;
-let frameX = 2;
-let frameY = 0;
+playerImg.src = 'spritesheet.png'
+
+// if using ded, it's 558, otherwise, width is 544
+let spriteWidth = animationStates[playerState].width;
+let spriteHeight = animationStates[playerState].height;
+
+console.log(playerState)
+
 let gameFrame = 0;
-const staggerFrames = 5;
+//allows slowing of frame. higher the number,the slower the animation
+const staggerFrames =  10;
 
-function animateWalk() {
+function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    //ctx.fillRect(0, 50, 100, 100);
+    let position = Math.floor(gameFrame/staggerFrames) %  animationStates[playerState].loc.length;
+    let frameX = animationStates[playerState].width * position; 
+    let frameY = animationStates[playerState].loc[position].y;
+
     //ctx.drawImage(image, sourcex, sourcey, sourcew, sourceh, destx, desty, destw, desth)
-    ctx.drawImage(playerImg, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
-    if (gameFrame % staggerFrames == 0) {
-        if (frameX < 9) frameX++;
-        else frameX = 0;
-    }
-
-
-    
+    ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+   
     gameFrame++;
-    requestAnimationFrame(animateWalk);
+    requestAnimationFrame(animate);
 };
 
-animateWalk();
-
+animate();
+console.log(animationStates.walk.loc.length)
