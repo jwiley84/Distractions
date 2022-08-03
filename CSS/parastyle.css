@@ -3,11 +3,26 @@ body {
 }
 
 #canvas1 { 
-    position: absolute;
-    border: 3px solid white;
+    position: relative;
     width: 800px;
     height: 700px;
+}
+
+#speedcontainer {
+    position: absolute;
+    width: 800px;
+    color: aliceblue;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    border: 3px solid blueviolet;
+    font-size: 25px;
+}
+
+#wut {
+    text-align: center;
+    color: white;
+}
+#slider {
+    width: 100%;
 }
