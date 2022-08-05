@@ -6,7 +6,7 @@ dropDown.addEventListener('change', function(e){
     playerState = e.target.value;
 });
 
-const canvas = document.getElementById('canvas1');
+const canvas = document.getElementById('canvascat');
 const ctx = canvas.getContext('2d');
 
 const CANVAS_WIDTH = canvas.width = 600;

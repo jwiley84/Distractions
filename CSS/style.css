@@ -1,4 +1,6 @@
-#canvas1 {
+/*Cat animation css*/
+
+#canvascat {
     /* border: 5px solid black; */
     position:absolute;
     top: 50%;
@@ -18,4 +20,54 @@
 
 .controls, select, option {
     font-size: 20px;
+}
+
+/*Paralax BG css*/
+
+#canvaspara { 
+    position: relative;
+    width: 800px;
+    height: 700px;
+}
+
+#speedcontainer {
+    position: absolute;
+    width: 800px;
+    color: purple;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border: 3px solid blueviolet;
+    font-size: 25px;
+}
+
+#wut {
+    text-align: center;
+    color: purple;
+}
+#slider {
+    width: 100%;
+}
+
+/*Enemy motion CSS*/
+#canvasnpcs {
+    border: 5px solid black;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+}
+
+/*Trippy Fish Tank CSS*/
+#canvastank {
+    border: 5px solid black;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background-color: aqua;
 }
